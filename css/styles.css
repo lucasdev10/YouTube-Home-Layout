@@ -40,6 +40,7 @@ body {
   font-size: 16px;
   background-color: var(--color-dark);
   color: var(--color-white);
+  overflow: hidden;
 }
 
 .avatar-image {
@@ -97,11 +98,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex: 1 1 50px;
+  max-width: 690px;
 }
 
 .search-content span {
   display: flex;
   position: relative;
+  width: 100%;
 }
 
 .search-content span input {
@@ -109,7 +113,7 @@ body {
   font-size: 1em;
   border: 1px solid var(--color-light-gray);
   padding: 5px;
-  width: 550px;
+  width: 100%;
 }
 
 .search-content span input:focus {
@@ -156,10 +160,11 @@ body {
   grid-area: tags;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 15px;
   padding-left: 30px;
   border-top: 1px solid #444444;
   border-bottom: 1px solid #444444;
+  overflow-x: auto;
 }
 
 .tags img {
@@ -167,14 +172,14 @@ body {
 }
 
 .tags button {
-  padding: 7px 13px;
+  padding: 7px 10px;
   border-radius: 30px;
   color: var(--color-white);
   background-color: var(--color-light-gray);
   border: 1px solid #555555;
   font-weight: normal;
   cursor: pointer;
-  font-size: 0.9em;
+  font-size: 0.85em;
 }
 
 .tags button:first-child {
@@ -196,6 +201,7 @@ body {
 
 *::-webkit-scrollbar {
   width: 8px;
+  height: 4px;
 }
 
 *::-webkit-scrollbar-thumb {
@@ -204,7 +210,7 @@ body {
 }
 
 .line-bottom {
-  border-top: 1px solid #5f5f5f;
+  border-top: 1px solid #535353;
   width: 95%;
   display: block;
   margin: 13px 0;
@@ -247,7 +253,180 @@ body {
   margin-left: 25px;
 }
 
+.links-content {
+  font-size: 0.75em;
+  color: #acabab;
+  font-weight: bold;
+  padding: 4px 0 20px 23px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  word-spacing: 3px;
+}
+
+.copywriting {
+  color: #686868;
+}
+
 .content-video {
   background-color: var(--color-dark);
   grid-area: content-video;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 22px;
+  overflow-y: auto;
+  max-height: 86vh;
+  width: 100%;
+}
+
+.video-item {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 242px;
+  max-width: 320px;
+}
+
+.video-item > img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+}
+
+.video-info {
+  display: flex;
+  gap: 15px;
+  padding: 12px 0;
+}
+
+.video-info .avatar {
+  height: 38px;
+  width: 38px;
+}
+
+.video-description {
+  font-size: 0.9em;
+  color: #a3a3a3;
+}
+
+.video-description h5 {
+  font-size: 1.05em;
+  color: #ffffff;
+  margin-bottom: 5px;
+}
+
+@media screen and (max-width: 1300px) {
+  .container {
+    grid-template-columns: 72px 1fr;
+  }
+
+  .aside-menu {
+    padding-top: 3px;
+  }
+
+  .aside-menu button {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.6em;
+    padding: 17px 0;
+    gap: 7px;
+    color: #a8a8a8;
+  }
+
+  .aside-menu button img {
+    height: 23px;
+  }
+
+  .aside-menu button:nth-child(n + 6),
+  .links-content,
+  .line-bottom,
+  h4 {
+    display: none;
+  }
+
+  .aside-menu button:first-child {
+    background-color: transparent !important;
+    color: #ffffff;
+  }
+}
+
+@media screen and (max-width: 623px) {
+  * {
+    font-size: 8px;
+  }
+
+  .container {
+    grid-template-columns: 27px 1fr;
+    grid-template-rows: 25px 25px 1fr;
+  }
+
+  .aside-menu button img {
+    height: 10px;
+  }
+
+  .aside-menu button {
+    padding: 5px 0;
+  }
+
+  .header-menu img {
+    height: 10px;
+  }
+
+  .logo {
+    width: 45px;
+  }
+
+  .logo-content {
+    width: 92px;
+    padding: 0 10px;
+  }
+
+  .content-profile {
+    width: 90px;
+    padding: 0 10px;
+  }
+
+  .content-profile img {
+    width: 10px;
+  }
+
+  .search-content span input {
+    height: 10px;
+    font-size: 0.8em;
+  }
+
+  .btn-search {
+    height: 10px;
+    width: 30px;
+  }
+
+  .tags {
+    padding: 0 5px;
+    font-size: 0.8em;
+    gap: 4px;
+  }
+
+  .tags button {
+    padding: 3px 5px;
+  }
+
+  .video-item {
+    flex: 1 1 88px;
+    max-width: 88px;
+  }
+
+  .video-info {
+    gap: 5px;
+  }
+
+  .video-info h5,
+  p {
+    font-size: 0.7em;
+  }
+
+  .video-info .avatar {
+    height: 15px;
+    width: 15px;
+  }
 }
